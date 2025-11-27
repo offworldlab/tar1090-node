@@ -440,3 +440,7 @@ tableColors = {
 //
 
 // MergeNonIcao = false; // set to true to merge non icao hex with the icao hex (remove the ~)
+
+// DualSourceEnabled = true;
+// DualSourceRadius = 40;
+// DualSourceUpdateInterval = 5000;

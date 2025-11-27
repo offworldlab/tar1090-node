@@ -14,6 +14,9 @@ COPY *.conf /usr/local/share/tar1090/
 COPY *.sh /usr/local/share/tar1090/
 RUN chmod +x /usr/local/share/tar1090/*.sh
 
+COPY docker/dual-source.js /usr/local/share/tar1090/html/
+COPY docker/dual-source.css /usr/local/share/tar1090/html/
+
 COPY docker/lighttpd-tar1090.conf /etc/lighttpd/conf-available/89-tar1090.conf
 RUN lighttpd-enable-mod tar1090
 
