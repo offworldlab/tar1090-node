@@ -440,3 +440,15 @@ tableColors = {
 //
 
 // MergeNonIcao = false; // set to true to merge non icao hex with the icao hex (remove the ~)
+
+// --------------------------------------------------------
+// Dual-Source ADS-B Configuration (local + adsb.lol)
+// --------------------------------------------------------
+// Enable fetching from adsb.lol in addition to local readsb
+// DualSourceEnabled = true;
+
+// Radius in nautical miles for adsb.lol queries
+// DualSourceRadius = 40;
+
+// Update interval for remote data in milliseconds (default: 5000ms = 5s)
+// DualSourceUpdateInterval = 5000;
