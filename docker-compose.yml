@@ -9,7 +9,7 @@ services:
       - /dev/bus/usb:/dev/bus/usb
     environment:
       - TZ=UTC
-      - READSB_DEVICE_TYPE=rtlsdr
+      - READSB_DEVICE_TYPE=sdrplay
       - READSB_GAIN=autogain
       - READSB_LAT=${RECEIVER_LAT:-0}
       - READSB_LON=${RECEIVER_LON:-0}
