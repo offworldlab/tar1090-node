@@ -29,6 +29,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      network: host
     container_name: tar1090
     hostname: tar1090
     restart: unless-stopped
