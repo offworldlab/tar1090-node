@@ -18,6 +18,7 @@ services:
       - READSB_STATS_RANGE=true
       - READSB_NET_ENABLE=true
       - READSB_NET_CONNECTOR=feed.adsb.lol,30004,beast_reduce_out
+      - DISABLE_WEBAPP=true
     volumes:
       - readsb-autogain:/run/autogain
       - readsb-collectd:/run/collectd
