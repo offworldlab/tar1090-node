@@ -30,12 +30,12 @@ services:
     ports:
       - "8504:80"
     extra_hosts:
-      - "readsb:192.168.8.104"
+      - "host.docker.internal:host-gateway"
     depends_on:
       - readsb
     environment:
       - TZ=UTC
-      - BEASTHOST=readsb
+      - BEASTHOST=host.docker.internal
       - BEASTPORT=30005
       - LAT=${RECEIVER_LAT:-0}
       - LONG=${RECEIVER_LON:-0}
