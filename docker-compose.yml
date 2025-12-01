@@ -4,8 +4,7 @@ services:
     container_name: readsb
     hostname: readsb
     restart: unless-stopped
-    networks:
-      - tar1090-network
+    network_mode: host
     environment:
       - TZ=UTC
       - READSB_DEVICE_TYPE=none
@@ -28,10 +27,10 @@ services:
     container_name: tar1090
     hostname: tar1090
     restart: unless-stopped
-    networks:
-      - tar1090-network
     ports:
       - "8504:80"
+    extra_hosts:
+      - "readsb:192.168.8.104"
     depends_on:
       - readsb
     environment:
@@ -46,7 +45,3 @@ services:
 volumes:
   readsb-autogain:
   readsb-collectd:
-
-networks:
-  tar1090-network:
-    driver: bridge
