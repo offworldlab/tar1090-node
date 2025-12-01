@@ -18,8 +18,8 @@ services:
     volumes:
       - readsb-autogain:/run/autogain
       - readsb-collectd:/run/collectd
+      - readsb-data:/run/readsb
     tmpfs:
-      - /run/readsb:size=64M
       - /var/log:size=32M
 
   tar1090:
@@ -42,7 +42,9 @@ services:
       - ADSBLOL_RADIUS=${ADSBLOL_RADIUS:-40}
     volumes:
       - ./html/config.js:/usr/local/share/tar1090/html/config.js:ro
+      - readsb-data:/run/readsb:ro
 
 volumes:
   readsb-autogain:
   readsb-collectd:
+  readsb-data:
