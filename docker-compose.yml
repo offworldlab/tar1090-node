@@ -14,7 +14,7 @@ services:
       - READSB_RX_LOCATION_ACCURACY=2
       - READSB_STATS_RANGE=true
       - READSB_NET_ENABLE=true
-      - DISABLE_WEBAPP=true
+      - READSB_NET_WEBPORT=8081
     volumes:
       - readsb-autogain:/run/autogain
       - readsb-collectd:/run/collectd
