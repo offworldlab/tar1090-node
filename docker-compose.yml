@@ -33,7 +33,7 @@ services:
       - readsb
     environment:
       - TZ=UTC
-      - BEASTHOST=readsb
+      - BEASTHOST=172.17.0.1
       - BEASTPORT=30005
       - LAT=${RECEIVER_LAT:-0}
       - LONG=${RECEIVER_LON:-0}
