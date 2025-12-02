@@ -23,7 +23,9 @@ services:
       - /var/log:size=32M
 
   tar1090:
-    image: ghcr.io/sdr-enthusiasts/docker-tar1090:latest
+    build:
+      context: .
+      dockerfile: Dockerfile.tar1090
     container_name: tar1090
     hostname: tar1090
     restart: unless-stopped
@@ -38,6 +40,12 @@ services:
       - LONG=${RECEIVER_LON:-0}
       - TAR1090_DEFAULTCENTERLAT=${RECEIVER_LAT:-0}
       - TAR1090_DEFAULTCENTERLON=${RECEIVER_LON:-0}
+      - READSB_URL=http://127.0.0.1:80/data/aircraft.json
+      - ADSBLOL_ENABLED=${ADSBLOL_ENABLED:-false}
+      - RECEIVER_LAT=${RECEIVER_LAT:-0}
+      - RECEIVER_LON=${RECEIVER_LON:-0}
+      - ADSBLOL_RADIUS=${ADSBLOL_RADIUS:-40}
+      - PROXY_PORT=3000
 
 volumes:
   readsb-autogain:

@@ -1,0 +1,19 @@
+FROM ghcr.io/sdr-enthusiasts/docker-tar1090:latest
+
+USER root
+
+RUN apt-get update && apt-get install -y \
+    curl \
+    && curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
+    && apt-get install -y nodejs \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY proxy/server.js /opt/proxy/server.js
+
+COPY docker/lighttpd-proxy.conf /etc/lighttpd/conf-available/90-proxy.conf
+RUN lighttpd-enable-mod proxy
+
+COPY docker/entrypoint.sh /opt/entrypoint.sh
+RUN chmod +x /opt/entrypoint.sh
+
+ENTRYPOINT ["/opt/entrypoint.sh"]
